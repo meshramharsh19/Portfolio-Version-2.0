@@ -1,0 +1,52 @@
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .navbar-container {
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.dark-mode .nav-item {
+    color: #d1d5db;
+}
+
+.dark-mode .nav-item:hover,
+.dark-mode .nav-item.active {
+    color: #4299e1;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 85vh;
+    left: 74vw;
+    background: rgba(66, 153, 225, 0.2);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    /* Ensures it stays above other elements */
+}
+
+
+.dark-mode-toggle:hover {
+    background: rgba(66, 153, 225, 0.4);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover .icon {
+    color: #4299e1;
+}
+
+.dark-mode .icon {
+    color: #ffffff;
+}

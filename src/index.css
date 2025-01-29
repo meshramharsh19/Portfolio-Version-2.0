@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the profile image */
+.profile-img {
+    width: 150px;      /* Set the desired width */
+    height: 150px;     /* Set the desired height (same as width for a square) */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;  /* Ensures the image covers the area without distortion */
+  }
+  
+  /* Optional: if you want to use the profile image as a favicon (and it should still be round) */
+  #profile-icon {
+    border-radius: 50%;
+  }
+  

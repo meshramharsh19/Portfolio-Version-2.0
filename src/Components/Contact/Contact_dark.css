@@ -1,0 +1,130 @@
+
+/* Dark Mode */
+.dark .contact-container {
+    background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+  }
+  
+  .dark .header-title {
+    background: linear-gradient(to right, #ffffff, #e2e8f0);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .dark .header-description {
+    color: #e2e8f0;
+  }
+  
+  .dark .grid-container {
+    color: #e2e8f0;
+  }
+  
+  .dark .grid-content {
+    background-color: #2d3748;
+  }
+  
+  .dark .contact-info {
+    color: #e2e8f0;
+  }
+  
+  .dark .info-card {
+    background-color: #2d3748;
+    color: #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .contact-item {
+    background-color: #4a5568;
+  }
+  
+  .dark .contact-item:hover {
+    background-color: #2d3748;
+  }
+  
+  .dark .icon-wrapper {
+    background-color: #ffffff;
+  }
+  
+  .dark .coffee-button {
+    background: linear-gradient(to right, #f59e0b, #d97706);
+    color: white;
+  }
+  
+  .dark .coffee-button:hover {
+    background: linear-gradient(to right, #f59e0b, #d97706);
+  }
+  
+  .dark .coffee-button:active {
+    background: linear-gradient(to right, #d97706, #f59e0b);
+  }
+  
+  .dark .form-wrapper {
+    background-color: #2d3748;
+  }
+  
+  .dark .form-container {
+    color: #e2e8f0;
+  }
+  
+  .dark .form-field input,
+  .dark .form-field textarea {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+  
+  .dark .form-field input:focus,
+  .dark .form-field textarea:focus {
+    border-color: white;
+    box-shadow: 0 0 0 1px white;
+  }
+  
+  .dark .result-message {
+    background-color: #4a5568;
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+  
+  .dark .submit-button {
+    background-color: #e2e8f0;
+    color: #000;
+  }
+  
+  .dark .submit-button:hover {
+    background-color: #a2b8d4;
+  }
+  
+  .dark .submit-button:active {
+    background-color: #4a5568;
+  }
+  
+  .dark .submit-button:disabled {
+    opacity: 0.7;
+  }
+  
+  .dark .spinner {
+    animation: spin 1s linear infinite;
+  }
+  
+  .dark .contact-item-content h3 {
+    color: #e2e8f0;
+  }
+  
+  .dark .contact-item-content p {
+    color: #a0aec0;
+  }
+  
+  .dark .contact-item:hover .contact-item-content h3 {
+    color: white;
+  }
+  
+  .dark .contact-item:hover .contact-item-content p {
+    color: #e2e8f0;
+  }
+  .dark .icon{
+    color: rgb(0, 0, 0);
+  }
+  .dark .icon-wrapper{
+  background-color: white;
+   color: #1f2937;
+  }

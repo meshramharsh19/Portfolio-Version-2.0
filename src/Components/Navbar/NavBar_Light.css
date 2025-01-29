@@ -1,0 +1,154 @@
+/* Navbar Container */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
+  width: 60vw;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 1rem;
+  z-index: 1000;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease-in-out;
+}
+
+.navbar-container.hidden {
+  transform: translateX(-50%) translateY(-150%);
+  opacity: 0;
+}
+
+.navbar-container.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: inherit;
+}
+
+/* Logo */
+.logo {
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2d3748;
+  transition: color 0.4s ease-in-out;
+}
+
+.logo-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4299e1;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo:hover .logo-underline {
+  width: 100%;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  color: #4a5568;
+  transition: color 0.4s ease-in-out;
+}
+
+.nav-item-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #4299e1;
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item:hover .nav-item-underline,
+.nav-item.active .nav-item-underline {
+  width: 100%;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #4299e1;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  background-color: rgba(66, 153, 225, 0.15);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #4a5568;
+  transition: color 0.4s ease-in-out;
+}
+
+.social-link:hover .icon {
+  color: #4299e1;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.4s ease-in-out;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+
+

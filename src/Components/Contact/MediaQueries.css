@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+    .grid-content {
+      grid-template-columns: 5fr 7fr;
+    }
+  }
+  

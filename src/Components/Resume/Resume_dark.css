@@ -1,0 +1,101 @@
+
+/* Dark mode styles */
+.dark .resume-page {
+    background-color: #1a1a1a;
+    color: #e5e7eb;
+  }
+  
+  .dark .hero-section {
+    background-color: #2d3748;
+    color: #e5e7eb;
+  }
+  
+  .dark .hero-description {
+    color: #a0aec0;
+  }
+  
+  .dark .contact-link {
+    color: #a0aec0;
+  }
+  
+  .dark .contact-link:hover {
+    color: #ffffff;
+  }
+  
+  .dark .social-link {
+    background-color: #4a5568;
+    color: #e5e7eb;
+  }
+  
+  .dark .social-link:hover {
+    background-color: #2d3748;
+  }
+  
+  .dark .download-button {
+    background-color: #4a5568;
+    color: #e5e7eb;
+  }
+  
+  .dark .download-button:hover {
+    background-color: #2d3748;
+  }
+  
+  .dark .tab-button.active {
+    background-color: #4a5568;
+    color: #e5e7eb;
+  }
+  
+  .dark .tab-button:not(.active) {
+    background-color: #2d3748;
+    color: #a0aec0;
+  }
+  
+  .dark .tab-button:not(.active):hover {
+    background-color: #4a5568;
+  }
+  
+  .dark .content-section {
+    background-color: #2d3748;
+    color: #e5e7eb;
+  }
+  
+  .dark .section-title {
+    color: #e5e7eb;
+  }
+  
+  .dark .experience-item,
+  .dark .education-item,
+  .dark .skill-item,
+  .dark .achievements-list {
+    border-left-color: #e5e7eb;
+  }
+  
+  .dark .experience-company,
+  .dark .education-details,
+  .dark .education-institution,
+  .dark .experience-duration,
+  .dark .education-duration,
+  .dark .experience-description,
+  .dark .achievements-description {
+    color: #a0aec0;
+  }
+  
+  .dark .skill-tag {
+    background-color: #4a5568;
+    color: #e5e7eb;
+  }
+  
+  .dark .achievement-item {
+    color: #e5e7eb;
+  }
+  
+  .dark .achievement-icon {
+    color: #e5e7eb;
+  }
+  .dark .Certifications {
+    background-color: #2d3748;
+    color: #fff;
+  }
+  .dark .Certifications:hover {
+    background-color: #4a5568;
+  }

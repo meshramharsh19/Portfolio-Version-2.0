@@ -1,0 +1,41 @@
+.dark .portfolio-home-page {
+  background: linear-gradient(to bottom right, #1a202c, #2d3748, #4a5568);
+}
+
+.dark .portfolio-card .content h1 {
+  color: #e2e8f0;
+  background: linear-gradient(135deg, #a0aec0, #e2e8f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .portfolio-card .content p {
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.dark .portfolio-card .section {
+  background: rgba(26, 32, 44, 0.7);
+  color: #e2e8f0;
+}
+
+.dark .portfolio-card .section.active {
+  background: rgba(26, 32, 44, 0.9);
+  box-shadow: 0 0 0 2px rgba(74, 85, 104, 0.5);
+}
+
+.dark .portfolio-card .section:not(.active):hover {
+  background: rgba(26, 32, 44, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.dark .portfolio-card .section h2 {
+  color: #a0aec0;
+}
+
+.dark .portfolio-card .section p {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.dark .portfolio-card .icon-container svg {
+  color: #a0aec0;
+}

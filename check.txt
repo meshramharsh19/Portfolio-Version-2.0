@@ -1,0 +1,100 @@
+import '../Styles/Project.css';
+import ISE from "../images/img-search-engine.png";
+import NewsApp from "../images/newsapp.png";
+import TextSpeech from "../images/Text-to-Speak.png";
+import TextEditor from "../images/TextUtils.jpg";
+import Edicity from "../images/pragyan-forum.png";
+import PhotoEditor from "../images/photo-editor.png";
+import Weather from "../images/weather app.png";
+
+
+
+const projects = [
+    {
+      title: "Image Search Engine",
+      description: "Image Search Engine: Explore vast collections with AI-powered precision, finding visuals quickly for creative projects and information retrieval.",
+      technologies: ["JavaScript", "Bootstrap", "API fetching", "UIUX"],
+      githubLink: "https://github.com/meshramharsh19/Image-Search-Engine",
+      liveLink: "#",
+      background: "bg-blue-500",
+      image: ISE
+    },
+    {
+      title: "News Monkey",
+      description: "News Monkey: Your go-to app for breaking news, in-depth stories, and personalized updates, delivered instantly and reliably.",
+      technologies: ["React", "Tailwind", "Express", "Newsapi.org"],
+      githubLink: "https://github.com/meshramharsh19/News.Monkey",
+      liveLink: "#",
+      background: "bg-green-500",
+      image: NewsApp
+    },
+    {
+      title: "Text to Speech",
+      description: "Text-to-Speech: Converts written text into natural-sounding speech, enhancing accessibility and user interaction across various applications and devices.",
+      technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript"],
+      githubLink: "https://github.com/meshramharsh19/Text-to-Speak",
+      liveLink: "https://texttospeakprompt.netlify.app/",
+      background: "bg-purple-500",
+      image: TextSpeech
+    },
+    {
+      title: "TextUtils",
+      description: "TextUtils: A versatile text manipulation tool in React, offering essential features like formatting, analysis, and efficient editing capabilities.",
+      technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "ReactJS"],
+      githubLink: "https://github.com/meshramharsh19/TextUtils",
+      liveLink: "https://textutils-harsh.netlify.app/",
+      background: "bg-purple-500",
+      image: TextEditor
+    },
+    {
+      title: "Edusity",
+      description: "Educity is a modern and responsive front-end prototype for a college and school website. Designed with clean aesthetics and user-friendly navigation.",
+      technologies: ["ReactJS", "Tailwind CSS", "HTML", "CSS", "JavaScript"],
+      githubLink: "https://github.com/meshramharsh19/Edusity",
+      liveLink: "#",
+      background: "bg-purple-500",
+      image: Edicity
+    },
+    {
+      title: "Photo Editor",
+      description: "Image Editor is a fully functional tool designed to elevate your photo editing experience. With features like cropping, resizing, filters, and more.",
+      technologies: ["ReactJS", "Tailwind CSS", "HTML", "CSS", "JavaScript"],
+      githubLink: "https://github.com/meshramharsh19/Image_editor",
+      liveLink: "#",
+      background: "bg-purple-500",
+      image: PhotoEditor
+    },
+    {
+      title: "Check Weather Condition",
+      description: "Weather App: Real-time forecasts with intuitive UI, providing accurate weather updates for planning activities with ease and reliability.",
+      technologies: ["Tailwind CSS", "HTML", "CSS", "JavaScript"],
+      githubLink: "https://github.com/meshramharsh19/Weather-App",
+      liveLink: "#",
+      background: "bg-purple-500",
+      image: Weather
+    }
+  ];
+
+
+
+  dark mode 
+  import { useTheme } from '../context/ThemeContext';
+
+const YourComponent = () => {
+  const { isDarkMode } = useTheme();
+  
+  return (
+    <div className={`${isDarkMode ? 'dark:bg-gray-900' : 'bg-white'}`}>
+      {/* Your content */}
+    </div>
+  );
+};
+
+
+Tailwind dark mode className
+<div className="bg-white dark:bg-gray-900 text-black dark:text-white">
+  {/* Content adapts to theme */}
+</div>
+
+
+

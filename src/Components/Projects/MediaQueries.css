@@ -1,0 +1,80 @@
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .text-8xl {
+      font-size: 6rem; /* Reduce font size for large screens */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .text-8xl {
+      font-size: 4.5rem; /* Further reduce font size for medium screens */
+    }
+  
+    .md\:grid-cols-2 {
+      grid-template-columns: 1fr; /* Switch to single column layout */
+    }
+  
+    .px-8 {
+      padding-left: 1rem;
+      padding-right: 1rem; /* Reduce padding for medium screens */
+    }
+  
+    .p-8 {
+      padding: 1.5rem; /* Reduce padding for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .text-8xl {
+      font-size: 3.5rem; /* Reduce font size for smaller screens */
+    }
+  
+    .text-2xl {
+      font-size: 1.5rem; /* Reduce heading size */
+    }
+  
+    .text-lg {
+      font-size: 1rem; /* Reduce paragraph size */
+    }
+  
+    .grid-cols-2 {
+      grid-template-columns: 1fr; /* Switch to single column layout */
+    }
+  
+    .gap-8 {
+      gap: 1rem; /* Reduce gap between grid items */
+    }
+  
+    .px-8 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem; /* Reduce padding for smaller screens */
+    }
+  
+    .p-8 {
+      padding: 1rem; /* Reduce padding for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .text-8xl {
+      font-size: 2.5rem; /* Further reduce font size for mobile */
+    }
+  
+    .text-2xl {
+      font-size: 1.25rem; /* Reduce heading size */
+    }
+  
+    .text-lg {
+      font-size: 0.875rem; /* Reduce paragraph size */
+    }
+  
+    .px-8 {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem; /* Reduce padding for mobile */
+    }
+  
+    .p-8 {
+      padding: 0.5rem; /* Reduce padding for mobile */
+    }
+  }

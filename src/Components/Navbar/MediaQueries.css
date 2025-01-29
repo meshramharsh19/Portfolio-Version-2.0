@@ -1,0 +1,48 @@
+@media (max-width: 768px) {
+    .navbar-container {
+        width: 90vw;
+        margin-top: 10px;
+    }
+
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        border-radius: 1rem;
+        padding: 1rem;
+        gap: 1rem;
+        display: none;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+
+    .nav-links.open {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .social-icons {
+        display: none;
+    }
+}
+
+@supports not (scroll-behavior: smooth) {
+    html {
+        scroll-behavior: auto;
+    }
+}

@@ -1,0 +1,23 @@
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px; /* Thin width for the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000; /* Pure black background for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333; /* Darker black background for the scrollbar thumb on hover */
+}
+
+/* Firefox Scrollbar Styles */
+* {
+  scrollbar-width: thin; /* Thin width for the scrollbar */
+  scrollbar-color: #000000 transparent; /* Pure black thumb and transparent track */
+}
