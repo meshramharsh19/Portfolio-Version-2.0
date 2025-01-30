@@ -1,43 +1,74 @@
 @media (max-width: 768px) {
   .portfolio-card .content h1 {
     font-size: 3rem;
-    /* Reduce font size for smaller screens */
   }
 
   .portfolio-card .content p {
     font-size: 1rem;
-    /* Reduce paragraph font size */
   }
 
   .portfolio-card .section h2 {
     font-size: 1.1rem;
-    /* Reduce section heading size */
   }
 
   .portfolio-card .section p {
     font-size: 0.9rem;
-    /* Reduce section paragraph size */
   }
 }
 
 @media (max-width: 576px) {
   .portfolio-card .content h1 {
     font-size: 2.5rem;
-    /* Further reduce font size for mobile */
   }
 
   .portfolio-card .content {
     padding: 1rem;
-    /* Reduce padding for smaller screens */
   }
 
   .portfolio-card .sections {
     padding: 1rem;
-    /* Reduce padding for smaller screens */
   }
 
   .portfolio-card .section {
     padding: 1rem;
-    /* Reduce section padding */
+  }
+}
+
+@media (max-width: 1200px) {
+  .portfolio-card .content h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .portfolio-card .content h1 {
+    font-size: 4rem;
+  }
+
+  .portfolio-card .sections {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card .content img {
+    position: static;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-card .content h1 {
+    font-size: 2rem;
+  }
+
+  .portfolio-card .content p {
+    font-size: 0.9rem;
+  }
+
+  .portfolio-card .section h2 {
+    font-size: 1rem;
+  }
+
+  .portfolio-card .section p {
+    font-size: 0.8rem;
   }
 }

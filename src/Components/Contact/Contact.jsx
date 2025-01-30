@@ -1,4 +1,4 @@
-// Contact.jsx
+
 import React, { useState } from 'react';
 import './Contact_Light.css';
 import './Contact_dark.css';
@@ -14,7 +14,7 @@ const Contact = () => {
     setResult("");
     
     const formData = new FormData(event.target);
-    formData.append("access_key", "b558d3cb-2957-44da-84b4-34ab3711098c");
+    formData.append("access_key", "7ce733c4-9c2b-4eb8-a876-737c58504422");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

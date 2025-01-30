@@ -3,40 +3,59 @@ import { ArrowRight, ExternalLink, Github, Plus, Moon, Sun, X, ArrowDown, Calend
 import './Project_Light.css';
 import './MediaQueries.css'
 import { useTheme } from '../Themes/ThemeContext';
+
+// import images
 import ISE from "./Images/img-search-engine.png";
+import ISE2 from "./Images/img-search-engine2.png";
+import ISE3 from "./Images/img-search-engine3.png";
+import ISE4 from "./Images/img-search-engine4.png";
+
+
 import NewsApp from "./Images/newsapp.png";
 import TextSpeech from "./Images/Text-to-Speak.png";
 import TextEditor from "./Images/TextUtils.png";
+
 import Edicity from "./Images/pragyan-forum.png";
+import Edicity2 from "./Images/pragyan-forum2.png";
+import Edicity3 from "./Images/pragyan-forum3.png";
+import Edicity4 from "./Images/pragyan-forum4.png";
+import Edicity5 from "./Images/pragyan-forum5.png";
+import Edicity6 from "./Images/pragyan-forum6.png";
+
 import PhotoEditor from "./Images/photo-editor.png";
 import Weather from "./Images/weather app.png";
+
+
+// import videos
+import ImageSearchEngineVideo from './Videos/ImageSearchEngine.mp4'
+import TextSpeechVideo from './Videos/Text-To-Speech.mp4'
+import TextUtilsVideo from './Videos/TextUtils.mp4'
+import EdicityVideo from './Videos/Pragyan.mp4'
+import WeatherVideo from "./Videos/Weather.mp4";
 
 const MonochromePortfolio = () => {
   const { isDarkMode } = useTheme();
   const [activeProject, setActiveProject] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);git status
-  git status
-
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeSection, setActiveSection] = useState('overview');
 
   // Refs for scroll animations
   const sectionRefs = useRef([]);
 
   const projects = [
-    
     {
       title: "Text to Speech",
       year: "2023",
       category: "Web Technologies",
       description: "Text-to-Speech: Converts written text into natural-sounding speech, enhancing accessibility and user interaction across various applications and devices.",
-      images: [
-        TextSpeech
+      media: [
+        { type: 'image', src: TextSpeech },
+        { type: 'video', src: TextSpeechVideo }
       ],
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind","API"],
       team: "Lead Developer",
-      
       links: {
         live: "https://texttospeakprompt.netlify.app/",
         github: "https://github.com/meshramharsh19/Text-to-Speak",
@@ -47,8 +66,9 @@ const MonochromePortfolio = () => {
       year: "2024",
       category: "Web Development",
       description: "TextUtils: A versatile text manipulation tool in React, offering essential features like formatting, analysis, and efficient editing capabilities.",
-      images: [
-        TextEditor
+      media: [
+        { type: 'image', src: TextEditor },
+        { type: 'video', src: TextUtilsVideo }
       ],
       technologies: ["React", "HTML", "CSS", "JavaScript", "Bootstrap"],
       team: "Lead Developer",
@@ -62,10 +82,15 @@ const MonochromePortfolio = () => {
       year: "2024",
       category: "Web Development",
       description: "Educity is a modern and responsive front-end prototype for a college and school website. Designed with clean aesthetics and user-friendly navigation.",
-      images: [
-        Edicity
+      media: [
+        { type: 'image', src: Edicity },
+        { type: 'image', src: Edicity2 },
+        { type: 'image', src: Edicity3 },
+        { type: 'image', src: Edicity4 },
+        { type: 'image', src: Edicity5 },
+        { type: 'image', src: Edicity6 },
+        { type: 'video', src: EdicityVideo }
       ],
-      
       technologies: ["React", "HTML", "CSS", "JavaScript" ],
       team: "Lead Developer",
       links: {
@@ -78,8 +103,12 @@ const MonochromePortfolio = () => {
       year: "2023",
       category: "Web Development",
       description: "Image Search Engine: Explore vast collections with AI-powered precision, finding visuals quickly for creative projects and information retrieval",
-      images: [
-        ISE
+      media: [
+        { type: 'image', src: ISE },
+        { type: 'image', src: ISE2 },
+        { type: 'image', src: ISE3 },
+        { type: 'image', src: ISE4 },
+        { type: 'video', src: ImageSearchEngineVideo }
       ],
       technologies: ["HTML", "CSS", "JavaScript", "API"],
       team: "Lead Developer",
@@ -93,8 +122,8 @@ const MonochromePortfolio = () => {
       year: "2023",
       category: "Web Technologies",
       description: "News Monkey: Your go-to app for breaking news, in-depth stories, and personalized updates, delivered instantly and reliably.",
-      images: [
-        NewsApp
+      media: [
+        { type: 'image', src: NewsApp }
       ],
       technologies: ["React", "HTML", "CSS", "JavaScript", "Bootstrap"],
       team: "Lead Developer",
@@ -108,12 +137,11 @@ const MonochromePortfolio = () => {
       year: "2024",
       category: "Web Development",
       description: "Image Editor is a fully functional tool designed to elevate your photo editing experience. With features like cropping, resizing, filters, and more.",
-      images: [
-        PhotoEditor
+      media: [
+        { type: 'image', src: PhotoEditor }
       ],
       technologies: ["HTML", "CSS", "JavaScript", "React"],
       team: "Lead Developer",
-      
       links: {
         live: "https://imagewillimaging.netlify.app/",
         github: "https://github.com/meshramharsh19/Image_editor",
@@ -124,13 +152,12 @@ const MonochromePortfolio = () => {
       year: "2022",
       category: "Web Development",
       description: "Weather App: Real-time forecasts with intuitive UI, providing accurate weather updates for planning activities with ease and reliability.",
-      images: [
-        Weather
+      media: [
+        { type: 'image', src: Weather },
+        { type: 'video', src: WeatherVideo }
       ],
-      
       technologies: ["HTML", "CSS", "JavaScript", "API"],
       team: "Lead Developer",
-      
       links: {
         live: "https://howstheweathers.netlify.app/   ",
         github: "https://github.com/meshramharsh19/Weather-App",
@@ -163,16 +190,12 @@ const MonochromePortfolio = () => {
   }, []);
 
   return (
-    
     <div id="projects"className={`min-h-screen transition-colors duration-300 ${
       isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
     }`}>
-      
-
       {/* Header */}
       <header className="pt-16 px-8 relative transition-all duration-500">
         <div className="absolute right-8 top-8 flex space-x-4">
-          
         </div>
         <h1 className="text-8xl font-bold tracking-tighter mb-4 transition-transform duration-500">
           PROJECTS
@@ -214,61 +237,67 @@ const MonochromePortfolio = () => {
         }`}>
           {/* Section Navigation */}
           <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem' }}>
-  {['overview', 'gallery'].map((section) => (
-    <button
-      key={section}
-      onClick={() => setActiveSection(section)}
-      style={{
-        padding: '0.5rem 1rem',
-        borderRadius: '9999px', // Fully rounded
-        transition: 'all 0.3s',
-        backgroundColor: activeSection === section 
-          ? isDarkMode 
-            ? 'black' 
-            : 'white' 
-          : 'transparent',
-        color: activeSection === section 
-          ? isDarkMode 
-            ? 'white' 
-            : 'black' 
-          : 'inherit',
-        cursor: 'pointer',
-      }}
-      onMouseEnter={(e) => {
-        e.target.style.backgroundColor = activeSection === section 
-          ? isDarkMode 
-            ? 'black' 
-            : 'white' 
-          : 'rgba(0, 0, 0, 0.2)';
-      }}
-      onMouseLeave={(e) => {
-        e.target.style.backgroundColor = activeSection === section 
-          ? isDarkMode 
-            ? 'black' 
-            : 'white' 
-          : 'transparent';
-      }}
-    >
-      {section.toUpperCase()}
-    </button>
-  ))}
-</div>
-
+            {['overview', 'gallery'].map((section) => (
+              <button
+                key={section}
+                onClick={() => setActiveSection(section)}
+                style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '9999px', // Fully rounded
+                  transition: 'all 0.3s',
+                  backgroundColor: activeSection === section 
+                    ? isDarkMode 
+                      ? 'black' 
+                      : 'white' 
+                    : 'transparent',
+                  color: activeSection === section 
+                    ? isDarkMode 
+                      ? 'white' 
+                      : 'black' 
+                    : 'inherit',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = activeSection === section 
+                    ? isDarkMode 
+                      ? 'black' 
+                      : 'white' 
+                    : 'rgba(0, 0, 0, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = activeSection === section 
+                    ? isDarkMode 
+                      ? 'black' 
+                      : 'white' 
+                    : 'transparent';
+                }}
+              >
+                {section.toUpperCase()}
+              </button>
+            ))}
+          </div>
 
           {/* Dynamic Content Based on Section */}
           <div className="space-y-8" ref={el => sectionRefs.current[1] = el}>
             {activeSection === 'overview' && (
               <div className="space-y-8">
-                <img
-                  src={projects[activeProject].images[0]}
-                  alt={projects[activeProject].title}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
+                {projects[activeProject].media[0].type === 'image' ? (
+                  <img
+                    src={projects[activeProject].media[0].src}
+                    alt={projects[activeProject].title}
+                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                ) : (
+                  <video
+                    src={projects[activeProject].media[0].src}
+                    controls
+                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                )}
                 <p className="text-lg leading-relaxed">
                   {projects[activeProject].description}
                 </p>
                 <div className="grid grid-cols-2 gap-4">
-                  
                   <div className="flex items-center space-x-2">
                     <Users className="w-5 h-5" />
                     <span>{projects[activeProject].team}</span>
@@ -288,16 +317,13 @@ const MonochromePortfolio = () => {
                       ))}
                     </div>
                   </div>
-                  
                 </div>
               </div>
             )}
 
-            
-
             {activeSection === 'gallery' && (
               <div className="grid grid-cols-2 gap-4">
-                {projects[activeProject].images.map((image, index) => (
+                {projects[activeProject].media.map((media, index) => (
                   <div
                     key={index}
                     className="relative cursor-pointer group"
@@ -306,11 +332,18 @@ const MonochromePortfolio = () => {
                       setIsGalleryOpen(true);
                     }}
                   >
-                    <img
-                      src={image}
-                      alt={`Project image ${index + 1}`}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                    {media.type === 'image' ? (
+                      <img
+                        src={media.src}
+                        alt={`Project image ${index + 1}`}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    ) : (
+                      <video
+                        src={media.src}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                       <Plus className="w-8 h-8 opacity-0 group-hover:opacity-100 text-white transition-all duration-300" />
                     </div>
@@ -319,31 +352,30 @@ const MonochromePortfolio = () => {
               </div>
             )}
 
-
-<div className="flex space-x-4 mt-8">
-  <a
-    href={projects[activeProject].links.live}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`px-6 py-3 flex items-center transition-all duration-300 ${
-      isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
-    } hover:scale-105`}
-  >
-    <ExternalLink className="w-4 h-4 mr-2" />
-    VIEW PROJECT
-  </a>
-  <a
-    href={projects[activeProject].links.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className={`px-6 py-3 border flex items-center transition-all duration-300 ${
-      isDarkMode ? 'border-black' : 'border-white'
-    } hover:scale-105`}
-  >
-    <Github className="w-4 h-4 mr-2" />
-    SOURCE CODE
-  </a>
-</div>
+            <div className="flex space-x-4 mt-8">
+              <a
+                href={projects[activeProject].links.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-6 py-3 flex items-center transition-all duration-300 ${
+                  isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
+                } hover:scale-105`}
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                VIEW PROJECT
+              </a>
+              <a
+                href={projects[activeProject].links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-6 py-3 border flex items-center transition-all duration-300 ${
+                  isDarkMode ? 'border-black' : 'border-white'
+                } hover:scale-105`}
+              >
+                <Github className="w-4 h-4 mr-2" />
+                SOURCE CODE
+              </a>
+            </div>
           </div>
         </div>
 
@@ -357,13 +389,21 @@ const MonochromePortfolio = () => {
               <X className="w-8 h-8" />
             </button>
             <div className="relative w-full max-w-4xl">
-              <img
-                src={projects[activeProject].images[activeImage]}
-                alt={`Gallery image ${activeImage + 1}`}
-                className="w-full h-auto"
-              />
+              {projects[activeProject].media[activeImage].type === 'image' ? (
+                <img
+                  src={projects[activeProject].media[activeImage].src}
+                  alt={`Gallery image ${activeImage + 1}`}
+                  className="w-full h-auto"
+                />
+              ) : (
+                <video
+                  src={projects[activeProject].media[activeImage].src}
+                  controls
+                  className="w-full h-auto"
+                />
+              )}
               <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                {projects[activeProject].images.map((_, index) => (
+                {projects[activeProject].media.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveImage(index)}

@@ -1,4 +1,3 @@
-/* Base styles (unchanged) */
 .portfolio-home-page {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #f7fafc, #edf2f7, #e2e8f0);
@@ -8,7 +7,6 @@
   padding: 1rem;
   transition: background 0.5s ease, color 0.5s ease;
 }
-
 
 .portfolio-card {
   max-width: 64rem;
@@ -55,8 +53,6 @@
   transition: color 0.5s ease, background 0.5s ease;
 }
 
-
-
 .portfolio-card .content p {
   font-size: 1.2rem;
   display: flex;
@@ -65,8 +61,6 @@
   margin-bottom: 2rem;
   transition: color 0.5s ease;
 }
-
-
 
 .portfolio-card .sections {
   display: grid;
@@ -89,20 +83,14 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
-
-
 .portfolio-card .section.active {
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 0 0.125rem rgba(0, 0, 0, 0.1);
 }
 
-
-
 .portfolio-card .section:not(.active):hover {
   background: rgba(0, 0, 0, 0.08);
 }
-
-
 
 .portfolio-card .section h2 {
   font-size: 1.25rem;
@@ -112,38 +100,7 @@
   transition: color 0.3s ease;
 }
 
-
-
 .portfolio-card .section p {
   color: rgba(0, 0, 0, 0.6);
   transition: color 0.3s ease;
-}
-
-
-
-/* Responsive Design Adjustments */
-@media (max-width: 1200px) {
-  .portfolio-card .content h1 {
-    font-size: 5rem;
-    /* Reduce font size for large screens */
-  }
-}
-
-@media (max-width: 992px) {
-  .portfolio-card .content h1 {
-    font-size: 4rem;
-    /* Further reduce font size for medium screens */
-  }
-
-  .portfolio-card .sections {
-    grid-template-columns: 1fr;
-    /* Switch to a single column layout */
-  }
-
-  .portfolio-card .content img {
-    position: static;
-    /* Move the image to the top of the content */
-    margin: 1rem auto;
-    /* Center the image */
-  }
 }
