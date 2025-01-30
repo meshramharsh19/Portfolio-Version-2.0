@@ -3,20 +3,22 @@ import { ArrowRight, ExternalLink, Github, Plus, Moon, Sun, X, ArrowDown, Calend
 import './Project_Light.css';
 import './MediaQueries.css'
 import { useTheme } from '../Themes/ThemeContext';
-import ISE from "../images/img-search-engine.png";
-import NewsApp from "../images/newsapp.png";
-import TextSpeech from "../images/Text-to-Speak.png";
-import TextEditor from "../images/TextUtils.jpg";
-import Edicity from "../images/pragyan-forum.png";
-import PhotoEditor from "../images/photo-editor.png";
-import Weather from "../images/weather app.png";
+import ISE from "./Images/img-search-engine.png";
+import NewsApp from "./Images/newsapp.png";
+import TextSpeech from "./Images/Text-to-Speak.png";
+import TextEditor from "./Images/TextUtils.png";
+import Edicity from "./Images/pragyan-forum.png";
+import PhotoEditor from "./Images/photo-editor.png";
+import Weather from "./Images/weather app.png";
 
 const MonochromePortfolio = () => {
   const { isDarkMode } = useTheme();
   const [activeProject, setActiveProject] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);git status
+  git status
+
   const [activeSection, setActiveSection] = useState('overview');
 
   // Refs for scroll animations
