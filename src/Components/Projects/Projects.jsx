@@ -16,9 +16,7 @@ const MonochromePortfolio = () => {
   const [activeProject, setActiveProject] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);git status
-  git status
-
+  // const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeSection, setActiveSection] = useState('overview');
 
   // Refs for scroll animations
