@@ -1,9 +1,35 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Download, Briefcase, GraduationCap, Award, Code } from 'lucide-react';
+import { 
+  Mail, Phone, Github, Linkedin, Download, Briefcase, 
+  GraduationCap, Award, Code, Terminal, Cpu, FileCode, 
+  Braces, Database, Coffee, Globe, Layers, Server, 
+  Layout, Palette, Wind, Box, GitBranch, Monitor, 
+  Figma, Wrench, HardDrive, Table
+} from 'lucide-react';
 import './Resume_Light.css';
 import './Resume_dark.css';
-import './MediaQueries.css'
+import './MediaQueries.css';
 import { useTheme } from '../Themes/ThemeContext';
+
+const SkillCategory = ({ title, skills, icons }) => (
+  <div className="skill-item">
+    <h3 className="skill-title flex items-center gap-2">
+      {icons[0]}
+      {title}
+    </h3>
+    <div className="skill-tags">
+      {skills.map((skill, index) => (
+        <span 
+          key={skill} 
+          className="skill-tag flex items-center gap-2"
+        >
+          {icons[index + 1] || <Code className="w-4 h-4" />}
+          {skill}
+        </span>
+      ))}
+    </div>
+  </div>
+);
 
 const ResumePage = () => {
   const { isDarkMode } = useTheme();
@@ -43,19 +69,32 @@ const ResumePage = () => {
             </div>
 
             <div className="social-links">
-              <a href="https://github.com/meshramharsh19" target="_blank" className="social-link">
+              <a 
+                href="https://github.com/meshramharsh19" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link github"
+              >
                 <Github className="social-icon" />
                 GitHub
               </a>
-              <a href="https://www.linkedin.com/in/harsh-meshram-5b8271258/" target="_blank" className="social-link">
+              <a 
+                href="https://www.linkedin.com/in/harsh-meshram-5b8271258/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link linkedin"
+              >
                 <Linkedin className="social-icon" />
                 LinkedIn
               </a>
-              <a href="https://drive.google.com/file/d/1AI7Wk5TLEQy1LpfOTvHZvmyWsxa3DRbg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <button className="download-button">
-                  <Download className="download-icon" />
-                  Download CV
-                </button>
+              <a 
+                href="https://drive.google.com/file/d/1AI7Wk5TLEQy1LpfOTvHZvmyWsxa3DRbg/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="download-button"
+              >
+                <Download className="download-icon" />
+                Download CV
               </a>
             </div>
           </div>
@@ -146,49 +185,53 @@ const ResumePage = () => {
                 <h2 className="section-title">Technical Skills</h2>
 
                 <div className="skills-grid">
-                  <div className="skill-item">
-                    <h3 className="skill-title">Programming Languages</h3>
-                    <div className="skill-tags">
-                      {['Python', 'JavaScript', 'C', 'C++', 'SQL', 'Java'].map(skill => (
-                        <span key={skill} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <SkillCategory 
+                    title="Programming Languages" 
+                    skills={['Python', 'JavaScript', 'C', 'C++', 'SQL', 'Java']}
+                    icons={[
+                      <Terminal className="w-5 h-5" />,
+                      <FileCode className="w-4 h-4" />,
+                      <Cpu className="w-4 h-4" />,
+                      <Braces className="w-4 h-4" />,
+                      <Database className="w-4 h-4" />,
+                      <Coffee className="w-4 h-4" />
+                    ]}
+                  />
 
-                  <div className="skill-item">
-                    <h3 className="skill-title">Web Technologies</h3>
-                    <div className="skill-tags">
-                      {['ReactJS', 'NodeJS', 'ExpressJS', 'HTML', 'CSS', 'Bootstrap', 'Tailwind'].map(skill => (
-                        <span key={skill} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <SkillCategory 
+                    title="Web Technologies" 
+                    skills={['ReactJS', 'NodeJS', 'ExpressJS', 'HTML', 'CSS', 'Bootstrap', 'Tailwind']}
+                    icons={[
+                      <Globe className="w-5 h-5" />,
+                      <Layers className="w-4 h-4" />,
+                      <Server className="w-4 h-4" />,
+                      <Layout className="w-4 h-4" />,
+                      <Palette className="w-4 h-4" />,
+                      <Box className="w-4 h-4" />,
+                      <Wind className="w-4 h-4" />
+                    ]}
+                  />
 
-                  <div className="skill-item">
-                    <h3 className="skill-title">Databases</h3>
-                    <div className="skill-tags">
-                      {['MongoDB', 'SQL'].map(skill => (
-                        <span key={skill} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <SkillCategory 
+                    title="Databases" 
+                    skills={['MongoDB', 'SQL']}
+                    icons={[
+                      <HardDrive className="w-5 h-5" />,
+                      <Table className="w-4 h-4" />
+                    ]}
+                  />
 
-                  <div className="skill-item">
-                    <h3 className="skill-title">Tools</h3>
-                    <div className="skill-tags">
-                      {['Git', 'GitHub', 'Figma', 'Cesium ion', 'Xampp'].map(skill => (
-                        <span key={skill} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <SkillCategory 
+                    title="Tools" 
+                    skills={['Git', 'GitHub', 'Figma', 'Cesium ion', 'Xampp']}
+                    icons={[
+                      <GitBranch className="w-5 h-5" />,
+                      <Monitor className="w-4 h-4" />,
+                      <Figma className="w-4 h-4" />,
+                      <Server className="w-4 h-4" />,
+                      <Wrench className="w-4 h-4" />
+                    ]}
+                  />
                 </div>
               </div>
             )}

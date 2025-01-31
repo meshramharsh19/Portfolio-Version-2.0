@@ -161,3 +161,16 @@
       padding: 0.75rem 1.5rem;
   }
 }
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .social-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .social-link, .download-button {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+  }

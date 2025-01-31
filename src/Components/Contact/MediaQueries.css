@@ -1,6 +1,287 @@
-@media (min-width: 768px) {
-    .grid-content {
-      grid-template-columns: 5fr 7fr;
-    }
+
+.info-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 768px) {
+  .grid-content {
+    grid-template-columns: 5fr 7fr;
+    gap: 2rem;
   }
   
+  .contact-container {
+    padding: 0 2rem; /* Larger padding on bigger screens */
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .coffee-button {
+    font-size: 0.875rem; /* Smaller font size on very small screens */
+    padding: 0.75rem;
+  }
+  
+  .contact-container {
+    padding: 0 0.5rem; /* Smaller padding on very small screens */
+  }
+}
+
+/* Fix for nested elements */
+.contact-item {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.form-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Fix for icon alignment */
+.icon-wrapper {
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Ensure all elements use border-box */
+* {
+  box-sizing: border-box;
+}
+
+.contact-container {
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content-wrapper {
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 95vw;
+}
+
+.header-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.grid-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* iPhone SE (1st gen) / 5S / 5 (320px) */
+@media screen and (device-width: 320px) and (device-height: 568px) {
+  .form-wrapper {
+    padding: 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.75rem;
+  }
+  
+  .contact-item {
+    padding: 0.75rem;
+  }
+}
+
+/* iPhone 6/7/8 and SE 2020 (375px) */
+@media screen and (device-width: 375px) and (device-height: 667px) {
+  .content-wrapper {
+    padding: 1.5rem 1rem;
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* iPhone X/XS/11 Pro (375px) */
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .contact-container {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .form-wrapper {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone XR/11 (414px) */
+@media screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .grid-content {
+    gap: 2rem;
+  }
+  
+  .info-card {
+    padding: 1.75rem;
+  }
+}
+
+/* iPhone 12/13/14 Pro Max (428px) */
+@media screen and (device-width: 428px) and (device-height: 926px) {
+  .header-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* Samsung Galaxy S6/S7/S8 (360px) */
+@media screen and (device-width: 360px) and (device-height: 640px) {
+  .form-wrapper {
+    padding: 1.25rem;
+  }
+  
+  .icon-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Samsung Galaxy S8+/S9+/S10+ (412px) */
+@media screen and (device-width: 412px) and (device-height: 846px) {
+  .header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Google Pixel 4/5 (393px) */
+@media screen and (device-width: 393px) and (device-height: 851px) {
+  .form-field label {
+    font-size: 0.925rem;
+  }
+}
+
+/* Realme/OPPO phones (360-400px) */
+@media screen and (min-width: 360px) and (max-width: 400px) and (min-height: 720px) {
+  .contact-item-content h3 {
+    font-size: 1rem;
+  }
+  
+  .contact-item-content p {
+    font-size: 0.875rem;
+  }
+}
+
+/* OnePlus phones (412px) */
+@media screen and (device-width: 412px) and (min-height: 915px) {
+  .submit-button,
+  .coffee-button {
+    height: 3.5rem;
+  }
+}
+
+/* Xiaomi phones (393-420px) */
+@media screen and (min-width: 393px) and (max-width: 420px) and (min-height: 850px) {
+  .form-field input,
+  .form-field textarea {
+    padding: 0.875rem;
+  }
+}
+
+/* Foldable phones - Samsung Galaxy Fold */
+@media screen and (min-width: 280px) and (max-width: 320px) and (min-height: 653px) {
+  .grid-content {
+    gap: 1rem;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Common mobile optimizations */
+@media screen and (max-width: 428px) {
+  /* Better touch targets */
+  .contact-item,
+  .submit-button,
+  .coffee-button {
+    min-height: 44px;
+  }
+  
+  /* Prevent text overflow */
+  .contact-item-content p {
+    word-break: break-word;
+  }
+  
+  /* Optimize form elements */
+  .form-field input,
+  .form-field textarea {
+    -webkit-appearance: none;
+    border-radius: 8px;
+  }
+  
+  /* Better scrolling */
+  .contact-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* High refresh rate screens (90Hz+) */
+@media screen and (min-resolution: 2dppx) {
+  .submit-button,
+  .coffee-button,
+  .contact-item {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Large screen devices */
+@media screen and (min-width: 768px) {
+  .grid-content {
+    grid-template-columns: 5fr 7fr;
+    gap: 2rem;
+  }
+  
+  .content-wrapper {
+    max-width: 90vw;
+    padding: 3rem 2rem;
+  }
+}
+
+/* Notch handling */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .contact-container {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Gesture navigation handling */
+@supports (margin-bottom: env(keyboard-inset-height)) {
+  .form-wrapper {
+    margin-bottom: env(keyboard-inset-height, 0px);
+  }
+}
+
+/* Fix for Android Chrome viewport height issue */
+@supports (-webkit-appearance: none) {
+  .contact-container {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-data: reduce) {
+  .decorative-elements {
+    display: none;
+  }
+}
+
+/* Handle orientation changes */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  .header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}

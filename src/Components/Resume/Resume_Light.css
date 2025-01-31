@@ -49,7 +49,7 @@
 }
 
 .contact-link:hover {
-    color: #fff;
+    color: #2c3b51e6;
 }
 
 .contact-icon {
@@ -61,6 +61,7 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+    color: #6780a4;
 }
 
 .social-link {
