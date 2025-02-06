@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ExternalLink, Github, Plus, Moon, Sun, X, ArrowDown, Calendar, Users, Award } from 'lucide-react';
+import { ArrowRight, ExternalLink, Github, Plus, X, Users, Award } from 'lucide-react';
 import './Project_Light.css';
 import './MediaQueries.css'
 import { useTheme } from '../Themes/ThemeContext';
@@ -9,7 +9,6 @@ import ISE from "./Images/img-search-engine.png";
 import ISE2 from "./Images/img-search-engine2.png";
 import ISE3 from "./Images/img-search-engine3.png";
 import ISE4 from "./Images/img-search-engine4.png";
-
 
 import NewsApp from "./Images/newsapp.png";
 import TextSpeech from "./Images/Text-to-Speak.png";
@@ -25,7 +24,6 @@ import Edicity6 from "./Images/pragyan-forum6.png";
 import PhotoEditor from "./Images/photo-editor.png";
 import Weather from "./Images/weather app.png";
 
-
 // import videos
 import ImageSearchEngineVideo from './Videos/ImageSearchEngine.mp4'
 import TextSpeechVideo from './Videos/Text-To-Speech.mp4'
@@ -33,7 +31,7 @@ import TextUtilsVideo from './Videos/TextUtils.mp4'
 import EdicityVideo from './Videos/Pragyan.mp4'
 import WeatherVideo from "./Videos/Weather.mp4";
 
-const MonochromePortfolio = () => {
+const Project = () => {
   const { isDarkMode } = useTheme();
   const [activeProject, setActiveProject] = useState(0);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -169,20 +167,21 @@ const MonochromePortfolio = () => {
   // Intersection Observer setup
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.1, // 10% visibility trigger
-      rootMargin: '0px'
+      threshold: 0.3, // Trigger when 10% of the element is visible
+      rootMargin: "0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target); // Unobserve after animation
         }
       });
     }, observerOptions);
 
     // Observe all sections
-    sectionRefs.current.forEach(ref => {
+    sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
@@ -190,87 +189,49 @@ const MonochromePortfolio = () => {
   }, []);
 
   return (
-    <div id="projects"className={`min-h-screen transition-colors duration-300 ${
-      isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
-    }`}>
+    <div id="projects" className={`project-container ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       {/* Header */}
-      <header className="pt-16 px-8 relative transition-all duration-500">
-        <div className="absolute right-8 top-8 flex space-x-4">
+      <header className="project-header">
+        <div className="header-buttons">
         </div>
-        <h1 className="text-8xl font-bold tracking-tighter mb-4 transition-transform duration-500">
-          PROJECTS
-        </h1>
-        <div className={`h-px w-full ${isDarkMode ? 'bg-white' : 'bg-black'} opacity-20`}></div>
+        <h1 className="project-title">PROJECTS</h1>
       </header>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+      <div className="main-grid">
         {/* Left Panel - Project List */}
-        <div className="p-8" ref={el => sectionRefs.current[0] = el}>
-          <div className="space-y-8">
+        <div className="project-list" ref={el => sectionRefs.current[0] = el}>
+          <div className="project-list-items">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className={`cursor-pointer transition-all duration-500 transform ${
-                  activeProject === index ? 'opacity-100 scale-105' : 'opacity-40 hover:opacity-70'
-                }`}
+                className={`project-item ${activeProject === index ? 'active' : 'inactive'}`}
                 onClick={() => setActiveProject(index)}
               >
                 {/* Project header content */}
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold tracking-tight">{project.title}</h2>
-                  <span className="text-sm opacity-60">{project.year}</span>
+                <div className="project-header-content">
+                  <h2 className="project-name">{project.title}</h2>
+                  <span className="project-year">{project.year}</span>
                 </div>
-                <div className="flex items-center mt-2">
-                  <span className="text-sm mr-4">{project.category}</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300" />
+                <div className="project-category">
+                  <span className="project-category-text">{project.category}</span>
+                  <ArrowRight className="project-arrow" />
                 </div>
-                <div className={`h-px w-full ${isDarkMode ? 'bg-white' : 'bg-black'} opacity-20 mt-8`}></div>
+                <div className="project-divider"></div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Right Panel - Project Details */}
-        <div className={`transition-colors duration-300 p-8 ${
-          isDarkMode ? 'bg-white text-black' : 'bg-black text-white'
-        }`}>
+        <div className={`project-details ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
           {/* Section Navigation */}
-          <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem' }}>
+          <div className="section-navigation">
             {['overview', 'gallery'].map((section) => (
               <button
                 key={section}
+                className={`section-button ${activeSection === section ? 'active' : ''}`}
                 onClick={() => setActiveSection(section)}
-                style={{
-                  padding: '0.5rem 1rem',
-                  borderRadius: '9999px', // Fully rounded
-                  transition: 'all 0.3s',
-                  backgroundColor: activeSection === section 
-                    ? isDarkMode 
-                      ? 'black' 
-                      : 'white' 
-                    : 'transparent',
-                  color: activeSection === section 
-                    ? isDarkMode 
-                      ? 'white' 
-                      : 'black' 
-                    : 'inherit',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = activeSection === section 
-                    ? isDarkMode 
-                      ? 'black' 
-                      : 'white' 
-                    : 'rgba(0, 0, 0, 0.2)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = activeSection === section 
-                    ? isDarkMode 
-                      ? 'black' 
-                      : 'white' 
-                    : 'transparent';
-                }}
               >
                 {section.toUpperCase()}
               </button>
@@ -278,39 +239,37 @@ const MonochromePortfolio = () => {
           </div>
 
           {/* Dynamic Content Based on Section */}
-          <div className="space-y-8" ref={el => sectionRefs.current[1] = el}>
+          <div className="dynamic-content" ref={el => sectionRefs.current[1] = el}>
             {activeSection === 'overview' && (
-              <div className="space-y-8">
+              <div className="overview-content">
                 {projects[activeProject].media[0].type === 'image' ? (
                   <img
                     src={projects[activeProject].media[0].src}
                     alt={projects[activeProject].title}
-                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                    className="project-media"
                   />
                 ) : (
                   <video
                     src={projects[activeProject].media[0].src}
                     controls
-                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                    className="project-media"
                   />
                 )}
-                <p className="text-lg leading-relaxed">
+                <p className="project-description">
                   {projects[activeProject].description}
                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-5 h-5" />
+                <div className="project-info">
+                  <div className="project-team">
+                    <Users className="project-icon" />
                     <span>{projects[activeProject].team}</span>
                   </div>
-                  <div className='space-y-4'>
-                    <h3 className="text-sm font-bold mb-2">TECHNOLOGIES</h3>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="project-technologies">
+                    <h3 className="technologies-title">TECHNOLOGIES</h3>
+                    <div className="technologies-list">
                       {projects[activeProject].technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className={`px-3 py-1 text-sm ${
-                            isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
-                          }`}
+                          className="technology-tag"
                         >
                           {tech}
                         </span>
@@ -322,11 +281,11 @@ const MonochromePortfolio = () => {
             )}
 
             {activeSection === 'gallery' && (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="gallery-content">
                 {projects[activeProject].media.map((media, index) => (
                   <div
                     key={index}
-                    className="relative cursor-pointer group"
+                    className="gallery-item"
                     onClick={() => {
                       setActiveImage(index);
                       setIsGalleryOpen(true);
@@ -336,43 +295,39 @@ const MonochromePortfolio = () => {
                       <img
                         src={media.src}
                         alt={`Project image ${index + 1}`}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="gallery-media"
                       />
                     ) : (
                       <video
                         src={media.src}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="gallery-media"
                       />
                     )}
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                      <Plus className="w-8 h-8 opacity-0 group-hover:opacity-100 text-white transition-all duration-300" />
+                    <div className="gallery-overlay">
+                      <Plus className="gallery-icon" />
                     </div>
                   </div>
                 ))}
               </div>
             )}
 
-            <div className="flex space-x-4 mt-8">
+            <div className="project-links">
               <a
                 href={projects[activeProject].links.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-6 py-3 flex items-center transition-all duration-300 ${
-                  isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
-                } hover:scale-105`}
+                className="project-link"
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
+                <ExternalLink className="project-icon" />
                 VIEW PROJECT
               </a>
               <a
                 href={projects[activeProject].links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`px-6 py-3 border flex items-center transition-all duration-300 ${
-                  isDarkMode ? 'border-black' : 'border-white'
-                } hover:scale-105`}
+                className="project-link-border"
               >
-                <Github className="w-4 h-4 mr-2" />
+                <Github className="project-icon" />
                 SOURCE CODE
               </a>
             </div>
@@ -381,35 +336,33 @@ const MonochromePortfolio = () => {
 
         {/* Gallery Modal */}
         {isGalleryOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+          <div className="gallery-modal">
             <button
               onClick={() => setIsGalleryOpen(false)}
-              className="absolute top-4 right-4 text-white hover:opacity-75 transition-opacity"
+              className="modal-close-button"
             >
-              <X className="w-8 h-8" />
+              <X className="modal-close-icon" />
             </button>
-            <div className="relative w-full max-w-4xl">
+            <div className="modal-content">
               {projects[activeProject].media[activeImage].type === 'image' ? (
                 <img
                   src={projects[activeProject].media[activeImage].src}
                   alt={`Gallery image ${activeImage + 1}`}
-                  className="w-full h-auto"
+                  className="modal-media"
                 />
               ) : (
                 <video
                   src={projects[activeProject].media[activeImage].src}
                   controls
-                  className="w-full h-auto"
+                  className="modal-media"
                 />
               )}
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+              <div className="modal-indicators">
                 {projects[activeProject].media.map((_, index) => (
                   <button
                     key={index}
+                    className={`modal-indicator ${activeImage === index ? 'active' : ''}`}
                     onClick={() => setActiveImage(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      activeImage === index ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
-                    }`}
                   />
                 ))}
               </div>
@@ -421,4 +374,4 @@ const MonochromePortfolio = () => {
   );
 };
 
-export default MonochromePortfolio;
+export default Project;

@@ -10,8 +10,14 @@
     color: #313131;
     padding: 3rem 1rem;
     text-align: center;
+    opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
+.hero-section.animate-hero {
+    opacity: 1;
+    transform: translateY(0);
+  }
 .hero-content {
     max-width: 72rem;
     margin: 0 auto;
@@ -115,7 +121,14 @@
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 2rem;
+    opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+.navigation-tabs.animate-tabs {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
 .tab-button {
     display: flex;
@@ -151,14 +164,27 @@
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 1rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
+.content-section.animate-content {
+    opacity: 1;
+    transform: translateX(0);
+  }
 .section-title {
     font-size: 1.5rem;
     font-weight: 700;
     color: #000;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
+.section-title.animate-section-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .experience-section,
 .education-section,

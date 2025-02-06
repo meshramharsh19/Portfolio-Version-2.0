@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Mail, Phone, Github, Linkedin, Download, Briefcase, 
   GraduationCap, Award, Code, Terminal, Cpu, FileCode, 
@@ -34,6 +34,54 @@ const SkillCategory = ({ title, skills, icons }) => (
 const ResumePage = () => {
   const { isDarkMode } = useTheme();
   const [activeTab, setActiveTab] = useState('experience');
+  
+  // Create refs for animating key sections
+  const heroRef = useRef(null);
+  const tabsRef = useRef(null);
+  const contentRef = useRef(null);
+  const sectionTitleRefs = useRef([]);
+
+  // Scroll animation effect
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.75,
+      rootMargin: "0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Add specific animation classes based on element type
+          if (entry.target.classList.contains('hero-section')) {
+            entry.target.classList.add('animate-hero');
+          } else if (entry.target.classList.contains('navigation-tabs')) {
+            entry.target.classList.add('animate-tabs');
+          } else if (entry.target.classList.contains('section-title-resume')) {
+            entry.target.classList.add('animate-section-title-resume');
+          } else if (entry.target.classList.contains('content-section')) {
+            entry.target.classList.add('animate-content');
+          }
+          
+          // Stop observing after animation
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe specific elements
+    const elementsToObserve = [
+      heroRef.current,
+      tabsRef.current,
+      contentRef.current,
+      ...(sectionTitleRefs.current || [])
+    ].filter(Boolean);
+
+    elementsToObserve.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, [activeTab]);
 
   const TabButton = ({ id, label, icon: Icon }) => (
     <button
@@ -49,7 +97,7 @@ const ResumePage = () => {
     <div className={`${isDarkMode ? 'dark:bg-gray-900' : 'bg-white'}`}>
       <div id='resume' className="resume-page">
         {/* Hero Section */}
-        <div className="hero-section">
+        <div ref={heroRef} className="hero-section">
           <div className="hero-content">
             <h1 className="hero-title">Software Engineer</h1>
             <p className="hero-description">
@@ -103,7 +151,7 @@ const ResumePage = () => {
         {/* Main Content */}
         <div className="main-content">
           {/* Navigation Tabs */}
-          <div className="navigation-tabs">
+          <div ref={tabsRef} className="navigation-tabs">
             <TabButton id="experience" label="Experience" icon={Briefcase} />
             <TabButton id="education" label="Education" icon={GraduationCap} />
             <TabButton id="skills" label="Skills" icon={Code} />
@@ -111,10 +159,17 @@ const ResumePage = () => {
           </div>
 
           {/* Content Sections */}
-          <div className="content-section">
+          <div ref={contentRef} className="content-section">
             {activeTab === 'experience' && (
               <div className="experience-section">
-                <h2 className="section-title">Professional Experience</h2>
+                <h2 
+                  ref={el => {
+                    if (el) sectionTitleRefs.current.push(el);
+                  }} 
+                  className="section-title-resume"
+                >
+                  Professional Experience
+                </h2>
 
                 <div className="experience-item">
                   <div className="experience-header">
@@ -149,7 +204,14 @@ const ResumePage = () => {
 
             {activeTab === 'education' && (
               <div className="education-section">
-                <h2 className="section-title">Education</h2>
+                <h2 
+                  ref={el => {
+                    if (el) sectionTitleRefs.current.push(el);
+                  }} 
+                  className="section-title-resume"
+                >
+                  Education
+                </h2>
 
                 <div className="education-item">
                   <div className="education-header">
@@ -182,7 +244,14 @@ const ResumePage = () => {
 
             {activeTab === 'skills' && (
               <div className="skills-section">
-                <h2 className="section-title">Technical Skills</h2>
+                <h2 
+                  ref={el => {
+                    if (el) sectionTitleRefs.current.push(el);
+                  }} 
+                  className="section-title-resume"
+                >
+                  Technical Skills
+                </h2>
 
                 <div className="skills-grid">
                   <SkillCategory 
@@ -238,7 +307,14 @@ const ResumePage = () => {
 
             {activeTab === 'achievements' && (
               <div className="achievements-section">
-                <h2 className="section-title">Achievements & Soft Skills</h2>
+                <h2 
+                  ref={el => {
+                    if (el) sectionTitleRefs.current.push(el);
+                  }} 
+                  className="section-title-resume"
+                >
+                  Achievements & Soft Skills
+                </h2>
 
                 <div className="achievements-list">
                   <ul className="achievements-description">

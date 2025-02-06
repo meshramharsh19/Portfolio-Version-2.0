@@ -176,19 +176,17 @@ const PortfolioHomePage = ({ onScroll }) => {
                   {section.icon}
                 </motion.div>
                 <h2 className="section-title">{section.title}</h2>
-                <AnimatePresence mode="wait">
                   {activeSection === index && (
                     <motion.p
                       className="section-content"
-                      initial={{ opacity: 0, height: 0 }}
+                      initial={{ opacity: 1, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
+                      exit={{ opacity: 1, height: 0 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                       {section.content}
                     </motion.p>
                   )}
-                </AnimatePresence>
               </motion.div>
             ))}
           </motion.div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './Contact_Light.css';
 import './Contact_dark.css';
@@ -91,7 +90,7 @@ const Contact = () => {
               </div>
 
               <button 
-                onClick={() => window.open('https://www.buymeacoffee.com/YOUR_USERNAME', '_blank')}
+                onClick={() => window.open('https://www.buymeacoffee.com/meshram_harsh_', '_blank')}
                 className="coffee-button"
               >
                 <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +98,6 @@ const Contact = () => {
                 </svg>
                 <span>Buy me a coffee</span>
               </button>
-                <p>Feature Coming Soon</p>
             </div>
 
             <div className="form-wrapper">
@@ -110,7 +108,7 @@ const Contact = () => {
                     <input 
                       type="text" 
                       name="name" 
-                      placeholder="Harsh Meshram"
+                      placeholder="e.g. Harsh Meshram"
                       required 
                     />
                   </div>
@@ -121,6 +119,15 @@ const Contact = () => {
                       type="tel" 
                       name="phone" 
                       placeholder="+91 (555) 000-0000"
+                      required 
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Mail ID</label>
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      placeholder="e.g. xyz@gmail.com"
                       required 
                     />
                   </div>
