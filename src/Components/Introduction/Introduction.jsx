@@ -17,12 +17,12 @@ const PortfolioHomePage = ({ onScroll }) => {
     {
       icon: <User className="w-12 h-12 text-gray-800" />,
       title: 'About Me',
-      content: 'I’m Harsh Meshram, a Web Developer and Python Programmer skilled in React, JavaScript, SQL, and Oracle. Passionate about building efficient applications, I’m currently exploring Docker and CI/CD to enhance my full-stack skills.'
+      content: 'Hi, I’m Harsh Meshram, a passionate Junior Developer at Cojag Smart Technology. I specialize in Full Stack MERN Development and Python Development, with a keen interest in GIS Software Development. I love creating innovative solutions that make a difference.'
     },
     {
       icon: <Briefcase className="w-12 h-12 text-gray-800" />,
       title: 'Experience',
-      content: 'With 2 years of experience in web development and 6 months in Python development, I have worked as a Web Development Intern at Motion Cuts and Python Developer at Internpe. Currently, I’m working as a GIS Software Developer at Cogaj, focusing on web-based GIS solutions.'
+      content: 'I have 6 months of experience as a Software Developer Intern at Cojag Smart Technologies, where I worked on GIS tools and satellite imagery reporting. Currently, I’m a Junior Software Developer at Ashmi Logistics, building logistics modules like Billing and Vehicle Tracking, and contributing to full-stack development and real-time workflow design.'
     },
     {
       icon: <Code className="w-12 h-12 text-gray-800" />,
