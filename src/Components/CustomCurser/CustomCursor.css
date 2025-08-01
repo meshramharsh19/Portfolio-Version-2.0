@@ -1,0 +1,151 @@
+/* Hide default cursor */
+body {
+    cursor: none;
+}
+
+/* Main cursor dot */
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(45deg, #4299e1, #75b7c27a);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 20px rgba(208, 107, 255, 0.37);
+}
+
+/* Cursor outline with lag effect */
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4299e1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* backdrop-filter: blur(5px); */
+}
+
+/* Cursor trail particles */
+.cursor-trail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 107, 107, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: trailFade 1s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* Hover states */
+.cursor-dot.hover {
+    width: 0;
+    height: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.cursor-outline.hover {
+    width: 80px;
+    height: 80px;
+    background: #adc6e958;
+    border-color: #658bc0;
+    border-width: 3px;
+    backdrop-filter: blur(5x);
+}
+
+/* Click effect */
+.cursor-dot.click {
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #ff6b6b, #ff8e53);
+    animation: clickPulse 0.3s ease-out;
+}
+
+.cursor-outline.click {
+    width: 60px;
+    height: 60px;
+    border-color: #ff6b6b;
+    animation: clickRipple 0.4s ease-out;
+}
+
+@keyframes clickPulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.5); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes clickRipple {
+    0% { 
+        transform: translate(-50%, -50%) scale(1);
+        border-width: 3px;
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1.3);
+        border-width: 1px;
+    }
+}
+
+/* Text selection state */
+.cursor-dot.text {
+    width: 2px;
+    height: 20px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #4ecdc4, #44a08d);
+    animation: textBlink 1.2s infinite;
+}
+
+.cursor-outline.text {
+    width: 20px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: rgba(78, 205, 196, 0.6);
+}
+
+@keyframes textBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Loading state */
+.cursor-dot.loading {
+    width: 12px;
+    height: 12px;
+    background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fd79a8, #ff6b6b);
+    animation: loadingSpin 1s linear infinite;
+}
+
+.cursor-outline.loading {
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                conic-gradient(from 0deg, #ff6b6b, transparent) border-box;
+    animation: loadingSpin 2s linear infinite reverse;
+}
+
+@keyframes loadingSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

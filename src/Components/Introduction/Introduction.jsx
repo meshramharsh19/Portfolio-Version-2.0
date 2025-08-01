@@ -144,7 +144,7 @@ const PortfolioHomePage = ({ onScroll }) => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
-                Full Stack Developer | Software Designer
+                Junior Developer - Cojag Smart Technology
               </motion.p>
             </div>
           </div>

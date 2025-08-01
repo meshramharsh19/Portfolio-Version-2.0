@@ -100,3 +100,46 @@
 .dark .Certifications:hover {
   background-color: #4a5568;
 }
+
+/*
+ * SMOOTH DARK MODE TRANSITIONS
+ * Apply a transition to all elements that change color or background.
+*/
+.resume-page,
+.hero-section,
+.hero-description,
+.contact-link,
+.social-link,
+.download-button,
+.tab-button,
+.content-section,
+.section-title-resume,
+.experience-item,
+.education-item,
+.skill-item,
+.achievements-list,
+.experience-company,
+.education-details,
+.education-institution,
+.experience-duration,
+.education-duration,
+.experience-description,
+.achievements-description,
+.skill-tag,
+.achievement-item,
+.achievement-icon,
+.Certifications {
+  transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease;
+}
+
+/* In Resume_dark.css */
+
+/* Dark mode button hover 'lift' effect */
+.dark .social-link:hover,
+.dark .download-button:hover,
+.dark .tab-button:not(.active):hover,
+.dark .Certifications:hover {
+  transform: translateY(-3px);
+  /* A slightly stronger shadow is needed for dark backgrounds */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4); 
+}

@@ -307,3 +307,39 @@
 .Certifications:hover {
     background-color: #e5e7eb;
 }
+
+
+/* --- Animation for Content Sections --- */
+
+/* 1. Define the keyframes for the animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px); /* Start 15px down */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);   /* End at its natural position */
+  }
+}
+
+/* 2. Apply the animation to your content sections when they appear */
+.experience-section,
+.education-section,
+.skills-section,
+.achievements-section {
+  /* This runs the animation we defined above */
+  animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+
+/* In Resume_Light.css */
+
+/* Button hover 'lift' effect */
+.social-link:hover,
+.download-button:hover,
+.tab-button:not(.active):hover,
+.Certifications:hover {
+  transform: translateY(-3px); /* Lifts the button up */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adds a soft shadow for depth */
+}

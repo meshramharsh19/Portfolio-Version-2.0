@@ -99,7 +99,7 @@ const ResumePage = () => {
         {/* Hero Section */}
         <div ref={heroRef} className="hero-section">
           <div className="hero-content">
-            <h1 className="hero-title">Software Engineer</h1>
+            <h1 className="hero-title">Junior Developer</h1>
             <p className="hero-description">
               Passionate about creating innovative solutions with modern technologies.
               Specializing in full-stack development with expertise in React, Python, Database and UX Development.
@@ -170,14 +170,27 @@ const ResumePage = () => {
                 >
                   Professional Experience
                 </h2>
-
+                  <div className="experience-item">
+                  <div className="experience-header">
+                    <div>
+                      <h3 className="experience-title">Junior Developer</h3>
+                      <p className="experience-company">Cojag Smart Technologies</p>
+                    </div>
+                    <span className="experience-duration">Jul 2025 - Present</span>
+                  </div>
+                  <ul className="experience-description">
+                    <li>• Collaborating on a logistics platform to digitize vehicle operations and freight workflows.</li>
+                    <li>• Designing forms and user flows for modules like Billing and Vehicle Tracking.</li>
+                    <li>• Mapping real logistics processes into digital systems with role-based access.</li>
+                  </ul>
+                </div>
                 <div className="experience-item">
                   <div className="experience-header">
                     <div>
                       <h3 className="experience-title">Software Engineer Intern</h3>
                       <p className="experience-company">Cojag Smart Technologies</p>
                     </div>
-                    <span className="experience-duration">Dec 2024 - Present</span>
+                    <span className="experience-duration">Dec 2024 - June 2025</span>
                   </div>
                   <ul className="experience-description">
                     <li>• Designed and developed GIS software with 3D/2D mapping using CesiumJS and Leaflet</li>

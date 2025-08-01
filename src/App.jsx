@@ -8,6 +8,7 @@ import NavBar from './Components/Navbar/NavBar';
 import ResumePage from './Components/Resume/Resume';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
+import CustomCursor from './Components/CustomCurser/CustomCursor';
 
 const App = () => {
   const [animateProjects, setAnimateProjects] = useState(false);
@@ -17,7 +18,12 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider>
+    <>
+    
+     <ThemeProvider>
+        <div className="App">
+      <CustomCursor />
+    </div>
       <Router>
         <Layout>
           <NavBar />
@@ -25,6 +31,7 @@ const App = () => {
           <ProjectShowcase/>
           <ResumePage />
           <Contact />
+          
           <Routes>
               <>
               </>
@@ -33,6 +40,7 @@ const App = () => {
         </Layout>
       </Router>
     </ThemeProvider>
+    </>
   );
 };
 
