@@ -4,7 +4,7 @@ import { User, Briefcase, Code, Mail } from 'lucide-react';
 import './Introduction_Light.css';
 import './Introduction_dark.css';
 import './MediaQueries.css';
-import ProfileImage from "../images/Profile picture.png";
+import ProfileImage from "../images/Profile picture.webp";
 import { useTheme } from '../Themes/ThemeContext';
 
 const PortfolioHomePage = ({ onScroll }) => {
@@ -15,24 +15,28 @@ const PortfolioHomePage = ({ onScroll }) => {
 
   const sections = [
     {
-      icon: <User className="w-12 h-12 text-gray-800" />,
+      icon: <User className="w-8 h-8" />,
       title: 'About Me',
-      content: 'Hi, I’m Harsh Meshram, a passionate Junior Developer at Cojag Smart Technology. I specialize in Full Stack MERN Development and Python Development, with a keen interest in GIS Software Development. I love creating innovative solutions that make a difference.'
+      preview: 'Full Stack & GIS Developer',
+      content: 'Hi, I’m Harsh Meshram, a Software Engineer at Cojag Smart Technology. I specialize in React.js frontends, Node.js/PHP backends, and real-time systems, with a strong focus on GIS software development. I love turning complex problems into fast, reliable products.'
     },
     {
-      icon: <Briefcase className="w-12 h-12 text-gray-800" />,
+      icon: <Briefcase className="w-8 h-8" />,
       title: 'Experience',
-      content: 'I have 6 months of experience as a Software Developer Intern at Cojag Smart Technologies, where I worked on GIS tools and satellite imagery reporting. Currently, I’m a Junior Software Developer at Ashmi Logistics, building logistics modules like Billing and Vehicle Tracking, and contributing to full-stack development and real-time workflow design.'
+      preview: '~2 years, production systems',
+      content: 'I\'m a Junior Software Engineer at Cojag Smart Technology, where I built an emergency-dispatch engine (45x faster), a WebSocket alert system (250x improvement for 200+ concurrent users), and led frontend architecture for a GIS 3D visualization suite used by a 9-member team.'
     },
     {
-      icon: <Code className="w-12 h-12 text-gray-800" />,
+      icon: <Code className="w-8 h-8" />,
       title: 'Skills',
-      content: 'Full Stack MERN Development, Python Development, Database engineer, GIS Software Developer, UI designer and UX developer'
+      preview: 'React, Node.js, Python, GIS',
+      content: 'React.js, Node.js, Express.js, Python, PHP, MySQL, MongoDB, WebSocket, Leaflet.js, CesiumJS, AWS, Docker — building full-stack products end-to-end, from database design to 3D geospatial visualization.'
     },
     {
-      icon: <Mail className="w-12 h-12 text-gray-800" />,
+      icon: <Mail className="w-8 h-8" />,
       title: 'Contact',
-      content: 'Let\’s create something amazing together! Move your cursor to the Contact section.'
+      preview: 'Let\'s build something together',
+      content: 'Open to new opportunities and collaborations. Reach out at meshram.harsh05@gmail.com, or scroll down to the Contact section to send a message directly.'
     }
   ];
 
@@ -97,7 +101,8 @@ const PortfolioHomePage = ({ onScroll }) => {
       <div id='home' className="portfolio-home-page">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="portfolio-card"
         >
@@ -144,7 +149,7 @@ const PortfolioHomePage = ({ onScroll }) => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
-                Junior Developer - Cojag Smart Technology
+                Software Engineer - Cojag Smart Technology
               </motion.p>
             </div>
           </div>
@@ -152,7 +157,8 @@ const PortfolioHomePage = ({ onScroll }) => {
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="sections"
           >
             {sections.map((section, index) => (
@@ -161,8 +167,7 @@ const PortfolioHomePage = ({ onScroll }) => {
                 variants={itemVariants}
                 whileHover={{
                   scale: 1.02,
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                  backgroundColor: isDarkMode ? "rgba(26, 32, 44, 0.9)" : "rgba(255,255,255,0.9)"
+                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
                 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setActiveSection(activeSection === index ? null : index)}
@@ -176,17 +181,20 @@ const PortfolioHomePage = ({ onScroll }) => {
                   {section.icon}
                 </motion.div>
                 <h2 className="section-title">{section.title}</h2>
+                <p className="section-preview">{section.preview}</p>
+                <AnimatePresence>
                   {activeSection === index && (
                     <motion.p
                       className="section-content"
-                      initial={{ opacity: 1, height: 0 }}
+                      initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 1, height: 0 }}
+                      exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     >
                       {section.content}
                     </motion.p>
                   )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </motion.div>

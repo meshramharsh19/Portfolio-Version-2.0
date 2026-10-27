@@ -101,6 +101,41 @@
   background-color: #4a5568;
 }
 
+.dark .section-title-resume {
+  color: #e5e7eb;
+}
+
+.dark .timeline-item {
+  border-left-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .timeline-marker {
+  background: #63b3ed;
+  box-shadow: 0 0 0 4px rgba(99, 179, 237, 0.2);
+}
+
+.dark .entity-link {
+  border-bottom-color: rgba(99, 179, 237, 0.5);
+}
+
+.dark .entity-link:hover {
+  color: #63b3ed;
+  border-color: #63b3ed;
+}
+
+.dark .education-university {
+  color: #a0aec0;
+}
+
+.dark .show-more-button {
+  color: #63b3ed;
+  background: rgba(99, 179, 237, 0.12);
+}
+
+.dark .show-more-button:hover {
+  background: rgba(99, 179, 237, 0.22);
+}
+
 /*
  * SMOOTH DARK MODE TRANSITIONS
  * Apply a transition to all elements that change color or background.

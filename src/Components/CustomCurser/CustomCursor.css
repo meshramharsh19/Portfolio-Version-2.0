@@ -1,9 +1,30 @@
-/* Hide default cursor */
-body {
-    cursor: none;
+/* Hide default cursor (desktop/mouse only) */
+@media (hover: hover) and (pointer: fine) {
+    body {
+        cursor: none;
+    }
 }
 
-/* Main cursor dot */
+/* Never show the custom cursor on touch devices */
+@media (hover: none), (pointer: coarse) {
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
+
+/* Text fields keep a real caret instead of the custom cursor hiding it */
+@media (hover: hover) and (pointer: fine) {
+    input,
+    textarea {
+        cursor: text;
+    }
+}
+
+/* Main cursor dot — position is driven every frame via inline transform
+   (translate3d) from CustomCursor.jsx, so only non-position properties
+   transition here. Transitioning transform itself would fight the rAF
+   loop and cause visible lag/rubber-banding. */
 .cursor-dot {
     position: fixed;
     top: 0;
@@ -12,14 +33,15 @@ body {
     height: 12px;
     background: linear-gradient(45deg, #4299e1, #75b7c27a);
     border-radius: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 10000;
-    transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 0 20px rgba(208, 107, 255, 0.37);
 }
 
-/* Cursor outline with lag effect */
+/* Cursor outline — eased toward the pointer in JS (lerp), so this only
+   needs to transition its own size/color changes on hover. */
 .cursor-outline {
     position: fixed;
     top: 0;
@@ -28,11 +50,10 @@ body {
     height: 40px;
     border: 2px solid #4299e1;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 9999;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* backdrop-filter: blur(5px); */
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border-color 0.2s ease, border-width 0.2s ease;
 }
 
 /* Cursor trail particles */
@@ -72,7 +93,6 @@ body {
     background: #adc6e958;
     border-color: #658bc0;
     border-width: 3px;
-    backdrop-filter: blur(5x);
 }
 
 /* Click effect */

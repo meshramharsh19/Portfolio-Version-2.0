@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './Contact_Light.css';
 import './Contact_dark.css';
 import './MediaQueries.css';
@@ -53,17 +54,29 @@ const Contact = () => {
       </div>
 
       <div className="content-wrapper">
-        <div className="header">
+        <motion.div
+          className="header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h1 className="header-title">Get in Touch</h1>
           <div className="header-divider"></div>
           <p className="header-description">
             Let's discuss your ideas and create something amazing together. Drop me a message, and I'll get back to you soon.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid-container">
           <div className="grid-content">
-            <div className="contact-info">
+            <motion.div
+              className="contact-info"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <div className="info-card">
                 <div className="contact-items">
                   {renderContactItem(
@@ -75,8 +88,8 @@ const Contact = () => {
                   {renderContactItem(
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />,
                     "Phone",
-                    "+91 7499288828",
-                    "tel:+917499288828"
+                    "+91 9130259099",
+                    "tel:+919130259099"
                   )}
                   {renderContactItem(
                     <>
@@ -98,9 +111,15 @@ const Contact = () => {
                 </svg>
                 <span>Buy me a coffee</span>
               </button>
-            </div>
+            </motion.div>
 
-            <div className="form-wrapper">
+            <motion.div
+              className="form-wrapper"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <form onSubmit={onSubmit} className="form-container">
                 <div className="form-group">
                   <div className="form-field">
@@ -124,11 +143,11 @@ const Contact = () => {
                   </div>
                   <div className="form-field">
                     <label>Mail ID</label>
-                    <input 
-                      type="tel" 
-                      name="phone" 
+                    <input
+                      type="email"
+                      name="email"
                       placeholder="e.g. xyz@gmail.com"
-                      required 
+                      required
                     />
                   </div>
 
@@ -172,7 +191,7 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

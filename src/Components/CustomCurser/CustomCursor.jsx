@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './CustomCursor.css';
 
 const CustomCursor = () => {
@@ -6,53 +6,67 @@ const CustomCursor = () => {
   const outlineRef = useRef(null);
 
   useEffect(() => {
+    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const outlinePos = { x: mouse.x, y: mouse.y };
+    let rafId;
+
     const moveCursor = (e) => {
-      const { clientX, clientY } = e;
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
 
-      // Ensure refs are current
-      if (dotRef.current && outlineRef.current) {
-        dotRef.current.style.left = `${clientX}px`;
-        dotRef.current.style.top = `${clientY}px`;
-        
-        // Use requestAnimationFrame for the outline to smooth out the lag
-        requestAnimationFrame(() => {
-          outlineRef.current.style.left = `${clientX}px`;
-          outlineRef.current.style.top = `${clientY}px`;
-        });
+    const render = () => {
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0) translate(-50%, -50%)`;
+      }
+
+      // Ease the outline toward the pointer for a smooth trailing effect
+      outlinePos.x += (mouse.x - outlinePos.x) * 0.2;
+      outlinePos.y += (mouse.y - outlinePos.y) * 0.2;
+      if (outlineRef.current) {
+        outlineRef.current.style.transform = `translate3d(${outlinePos.x}px, ${outlinePos.y}px, 0) translate(-50%, -50%)`;
+      }
+
+      rafId = requestAnimationFrame(render);
+    };
+
+    window.addEventListener('mousemove', moveCursor, { passive: true });
+    rafId = requestAnimationFrame(render);
+
+    // Event delegation so dynamically added elements (modals, cards) work
+    // too, without attaching a listener to every interactive node.
+    const HOVER_SELECTOR = 'a, button, [tabindex]:not([tabindex="-1"])';
+    const TEXT_SELECTOR = 'input, textarea';
+
+    const setState = (className, on) => {
+      outlineRef.current?.classList.toggle(className, on);
+      dotRef.current?.classList.toggle(className, on);
+    };
+
+    const handleOver = (e) => {
+      if (e.target.closest(TEXT_SELECTOR)) {
+        setState('text', true);
+      } else if (e.target.closest(HOVER_SELECTOR)) {
+        setState('hover', true);
       }
     };
 
-    const addHoverEffect = () => {
-      if (outlineRef.current && dotRef.current) {
-        outlineRef.current.classList.add('hover');
-        dotRef.current.classList.add('hover');
+    const handleOut = (e) => {
+      if (e.target.closest(TEXT_SELECTOR)) {
+        setState('text', false);
+      } else if (e.target.closest(HOVER_SELECTOR)) {
+        setState('hover', false);
       }
     };
 
-    const removeHoverEffect = () => {
-       if (outlineRef.current && dotRef.current) {
-        outlineRef.current.classList.remove('hover');
-        dotRef.current.classList.remove('hover');
-      }
-    };
-    
-    window.addEventListener('mousemove', moveCursor);
-    
-    // Add hover listeners to all interactive elements
-    document.querySelectorAll('a, button, input, [tabindex]:not([tabindex="-1"])')
-      .forEach(el => {
-        el.addEventListener('mouseover', addHoverEffect);
-        el.addEventListener('mouseleave', removeHoverEffect);
-      });
+    document.addEventListener('mouseover', handleOver);
+    document.addEventListener('mouseout', handleOut);
 
-    // Cleanup function
     return () => {
       window.removeEventListener('mousemove', moveCursor);
-       document.querySelectorAll('a, button, input, [tabindex]:not([tabindex="-1"])')
-      .forEach(el => {
-        el.removeEventListener('mouseover', addHoverEffect);
-        el.removeEventListener('mouseleave', removeHoverEffect);
-      });
+      document.removeEventListener('mouseover', handleOver);
+      document.removeEventListener('mouseout', handleOut);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

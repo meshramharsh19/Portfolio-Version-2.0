@@ -34,24 +34,32 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .portfolio-card .content h1 {
-    font-size: 5rem;
-  }
-}
-
 @media (max-width: 992px) {
   .portfolio-card .content h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
 
   .portfolio-card .sections {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 640px) {
+  .portfolio-card .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .portfolio-card .text-content {
+    text-align: center;
+  }
+
+  .portfolio-card .content p {
+    justify-content: center;
+  }
 
   .portfolio-card .content img {
-    position: static;
-    margin: 1rem auto;
+    max-width: 160px;
   }
 }
 

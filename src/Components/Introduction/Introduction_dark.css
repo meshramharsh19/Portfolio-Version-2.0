@@ -39,3 +39,23 @@
 .dark .portfolio-card .icon-container svg {
   color: #a0aec0;
 }
+
+.dark .portfolio-card .icon-container {
+  background: rgba(99, 179, 237, 0.15);
+  color: #63b3ed;
+}
+
+.dark .portfolio-card .section.active .icon-container {
+  background: #63b3ed;
+  color: #1a202c;
+}
+
+.dark .portfolio-card .section.active {
+  background: rgba(99, 179, 237, 0.12);
+  border-color: rgba(99, 179, 237, 0.4);
+  box-shadow: 0 10px 25px -8px rgba(99, 179, 237, 0.3);
+}
+
+.dark .portfolio-card .section-preview {
+  color: rgba(226, 232, 240, 0.55);
+}

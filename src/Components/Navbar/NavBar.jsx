@@ -63,7 +63,7 @@ const Navbar = () => {
   return (
     <div className="w-full">
       <div className={`navbar-container ${isVisible ? 'visible' : 'hidden'}`}>
-        <nav className={`navbar ${isDarkMode ? 'dark:bg-gray-900 text-white' : 'bg-white text-black'}`}>
+        <nav className={`navbar ${isDarkMode ? 'text-white' : 'bg-white text-black'}`}>
           <div className="logo">
             <span className="logo-text">Harsh's Portfolio</span>
             <div className="logo-underline"></div>
